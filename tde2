@@ -1,1 +1,219 @@
+#include <stdio.h>
+#include <string.h>
 
+questao 1
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+
+    // Solicita ao usuário que insira uma string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string incluindo espaços
+
+    // Exibe o conteúdo da string
+    printf("Conteúdo da string: %s", str);
+
+    // Exibe o comprimento da string
+    printf("Comprimento da string: %lu\n", strlen(str) - 1);  // Subtrai 1 para não contar o '\n' do fgets
+    
+
+
+
+//questao2
+int main() {
+    char str1[100], str2[100];  // Declara dois arrays para armazenar as strings
+
+    // Solicita ao usuário para digitar as duas strings
+    printf("Digite a primeira string: ");
+    fgets(str1, sizeof(str1), stdin);  // Lê a primeira string
+
+    printf("Digite a segunda string: ");
+    fgets(str2, sizeof(str2), stdin);  // Lê a segunda string
+
+    // Remove o caractere de nova linha '\n' que é adicionado pelo fgets
+    str1[strcspn(str1, "\n")] = '\0';
+    str2[strcspn(str2, "\n")] = '\0';
+
+    // Compara as duas strings
+    if (strcmp(str1, str2) == 0) {
+        printf("As strings são iguais.\n");
+    } else {
+        printf("As strings são diferentes.\n");
+    }
+
+
+questao3
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+
+    // Solicita ao usuário que insira uma string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string, permitindo espaços
+
+    // Exibe cada caractere da string em uma linha separada
+    printf("Cada caractere da string em uma linha:\n");
+    for (int i = 0; str[i] != '\0'; i++) {  // Percorre a string até o final
+        printf("%c\n", str[i]);  // Exibe o caractere na linha
+    }
+
+questao 4
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+    int count = 0;  // Variável para contar as ocorrências do caractere 'a'
+
+    // Solicita ao usuário para digitar a string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string
+
+    // Conta quantas vezes o caractere 'a' aparece na string
+    for (int i = 0; str[i] != '\0'; i++) {  // Percorre cada caractere até o fim da string
+        if (str[i] == 'a' || str[i] == 'A') {  // Verifica se o caractere é 'a' ou 'A'
+            count++;
+        }
+    }
+
+    // Exibe o total de ocorrências
+    printf("O caractere 'a' aparece %d vez(es) na string.\n
+
+
+
+questao 5
+
+int main() {
+    char str1[100], str2[100];  // Declarar dois arrays para armazenar as strings
+
+    // Solicita ao usuário para digitar uma string
+    printf("Digite uma string: ");
+    fgets(str1, sizeof(str1), stdin);  // Lê a string do usuário
+
+    // Remove o caractere de nova linha '\n' que é incluído pelo fgets()
+    str1[strcspn(str1, "\n")] = '\0';
+
+    // Usa strcpy() para copiar a string de str1 para str2
+    strcpy(str2, str1);
+
+    // Exibe ambas as strings para verificar a cópia
+    printf("String original: %s\n", str1);
+    printf("String copiada: %s\n", str2);
+
+
+questao 6
+
+int main() {
+    char str1[100], str2[100], resultado[200];  // Declaração de variáveis para as strings
+
+    // Solicita ao usuário que insira duas strings
+    printf("Digite a primeira string: ");
+    fgets(str1, sizeof(str1), stdin);  // Lê a primeira string
+    str1[strcspn(str1, "\n")] = '\0';  // Remove o '\n' gerado pelo fgets
+
+    printf("Digite a segunda string: ");
+    fgets(str2, sizeof(str2), stdin);  // Lê a segunda string
+    str2[strcspn(str2, "\n")] = '\0';  // Remove o '\n' gerado pelo fgets
+
+    // Realiza a concatenação usando strcat()
+    strcpy(resultado, str1);  // Copia a primeira string para o resultado
+    strcat(resultado, str2);  // Concatena a segunda string no final do resultado
+
+    // Exibe o resultado da concatenação
+    printf("Resultado da concatenação: %s\n", resultado);
+
+
+
+
+questao 7
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+
+    // Solicita ao usuário para digitar a string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string do usuário
+
+    // Converte cada caractere da string para maiúsculo
+    for (int i = 0; str[i] != '\0'; i++) {
+        str[i] = toupper(str[i]);  // Converte o caractere para maiúsculo
+    }
+
+    // Exibe a string com os caracteres em maiúsculo
+    printf("String convertida para maiúsculo: %s\n", str);
+
+
+questao 8
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+    int contadorVogais = 0;  // Variável para contar o número de vogais
+
+    // Solicita ao usuário que insira uma string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string
+
+    // Converte cada caractere e verifica se é uma vogal
+    for (int i = 0; str[i] != '\0'; i++) {
+        // Converte o caractere para minúsculo e verifica se é uma vogal
+        char c = tolower(str[i]);
+
+        // Se o caractere for uma vogal, incrementa o contador
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            contadorVogais++;
+        }
+    }
+
+    // Exibe o número de vogais encontradas
+    printf("Número de vogais na string: %d\n", contadorVogais);
+
+
+questao9
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+    int contadorEspacos = 0;  // Variável para contar o número de espaços em branco
+
+    // Solicita ao usuário que insira uma string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string
+
+    // Percorre cada caractere da string para contar os espaços
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ' ') {  // Verifica se o caractere é um espaço
+            contadorEspacos++;
+        }
+    }
+
+    // Exibe o número de espaços em branco encontrados
+    printf("Número de espaços em branco na string: %d\n", contadorEspacos);
+
+questao 10
+
+int main() {
+    char str[100];  // Declara um vetor para armazenar a string
+    int contadorLetras = 0;   // Contador de letras
+    int contadorDigitos = 0;  // Contador de dígitos
+    int contadorEspeciais = 0;  // Contador de caracteres especiais
+
+    // Solicita ao usuário para digitar a string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string
+
+    // Percorre cada caractere da string para classificar
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (isalpha(str[i])) {
+            contadorLetras++;  // Conta letras (tanto maiúsculas quanto minúsculas)
+        } else if (isdigit(str[i])) {
+            contadorDigitos++;  // Conta dígitos (0-9)
+        } else if (str[i] != ' ' && str[i] != '\n' && str[i] != '\t') {
+            // Considera qualquer outro caractere que não seja espaço, nova linha ou tabulação como especial
+            contadorEspeciais++;
+        }
+    }
+
+    // Exibe os resultados
+    printf("Número de letras: %d\n", contadorLetras);
+    printf("Número de dígitos: %d\n", contadorDigitos);
+    printf("Número de caracteres especiais: %d\n", contadorEspeciais);
+
+
+    return 0;
+}
